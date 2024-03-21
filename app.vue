@@ -1,12 +1,5 @@
-<script setup>
-
-const counter = ref(0)
-
-</script>
-
 <template>
-  <div>
-    <button @click="counter++">+</button>
-    <span>{{counter}}</span>
-  </div>
+  <NuxtLayout>
+    <NuxtPage></NuxtPage>
+  </NuxtLayout>
 </template>
