@@ -3,16 +3,20 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss',
     'nuxt-purgecss',
+    '@vueuse/nuxt',
+    '@nuxtjs/color-mode'
   ],
-  ssr: false,
+  colorMode: {
+    classSuffix: ''
+  },
+  tailwindcss: {
+    cssPath: '~/assets/css/tailwind.css',
+    configPath: 'tailwind.config.js',
+    exposeConfig: false,
+    config: {},
+    injectPosition: 0,
+    viewer: true,
+  },
+  css: ['~/assets/css/main.css'],
   devtools: { enabled: false },
-  purgecss: {
-    enabled: true, // Always enable purgecss
-    paths: [
-      'components/**/*.vue',
-      'layouts/**/*.vue',
-      'pages/**/*.vue',
-      'plugins/**/*.js'
-    ],
-  }
 })
