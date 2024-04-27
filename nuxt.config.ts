@@ -2,7 +2,6 @@
 export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss',
-    'nuxt-purgecss',
     '@vueuse/nuxt',
     '@nuxtjs/color-mode'
   ],
