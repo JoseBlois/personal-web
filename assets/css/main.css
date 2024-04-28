@@ -2,6 +2,11 @@ body {
   min-height: 100vh;
 }
 
+.dark body {
+  background-color: #0C1B33;
+  color: white;
+}
+
 .router-exact-link-active {
   color: green
 }

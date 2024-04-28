@@ -2,22 +2,28 @@
   setup
   lang="ts"
 >
-const colorMode = useColorMode()
+// import { useColorMode } from '@vueuse/core';
+import { useStorage } from '@vueuse/core'
+
+const colorMode = useColorMode();
 
 const toggleDarkMode = () => {
-  !isDarkModeOn.value ? colorMode.value = 'dark' : colorMode.value = 'light'
-}
+  if (!isDarkModeOn.value) {
+    colorMode.preference = 'dark'
+  } else {
+    colorMode.preference = 'light'
+  }
+};
 
 const isDarkModeOn = computed(() => {
-  return colorMode.value === 'dark'
-})
-
+  return colorMode.preference === 'dark';
+});
 </script>
 
 
 <template>
   <button
-    @click="toggleDarkMode()"
+    @click="toggleDarkMode"
     class="switch-container relative h-[42px] w-[80px] rounded-full bg-stone-700 flex items-center"
   >
     <div

@@ -3,31 +3,18 @@
   lang="ts"
 >
 const header = ref<HTMLElement | null>(null)
-const bodyElement = ref<HTMLElement | null>(null)
-const hasScrolled = ref<Boolean>(false);
-const colorMode = useColorMode()
-onMounted(() => {
-  console.log("colorMode", colorMode)
-  bodyElement.value = document.getElementsByTagName('body')?.[0];
-  console.log(bodyElement.value)
-  window.addEventListener('scroll', (e) => {
-    hasScrolled.value = true;
-  })
-})
-
 </script>
 
 <template>
   <header
     ref="header"
-    class="fixed top-0 left-0 right-0 border-b-2 border-green-600  flex items-center justify-around dark:bg-black"
+    class="fixed top-0 left-0 right-0 border-b-2 border-green-600  flex items-center justify-end bg-white dark:bg-[#0C1B33]"
   >
-    <SwitchButton />
     <nav>
       <ul class="flex justify-center space-x-8 ">
         <li>
           <NuxtLink
-            class="dark:text-white no-underline inline-block p-4 cursor-pointer dark:hover:text-green-600"
+            class="dark:text-white no-underline inline-block p-4 cursor-pointer dark:hover:text-green-600 hover:text-green-600"
             to="/"
           >
             Home
@@ -35,7 +22,7 @@ onMounted(() => {
         </li>
         <li>
           <NuxtLink
-            class="dark:text-white no-underline inline-block p-4 cursor-pointer dark:hover:text-green-600"
+            class="dark:text-white no-underline inline-block p-4 cursor-pointer dark:hover:text-green-600 hover:text-green-600"
             to="/about-me"
           >
             About
@@ -43,19 +30,16 @@ onMounted(() => {
         </li>
         <li>
           <NuxtLink
-            class="dark:text-white no-underline inline-block p-4 cursor-pointer dark:hover:text-green-600"
+            class="dark:text-white no-underline inline-block p-4 cursor-pointer dark:hover:text-green-600 hover:text-green-600"
             to="/creations"
           >Creations
           </NuxtLink>
         </li>
       </ul>
     </nav>
+    <SwitchButton />
+
   </header>
-  <div class="grid justify-items-center flex h-full items-top dark:bg-slate-900">
-    <div class="text-9xl mt-16 dark:text-white">
-      <h1>Nuxt Dark Mode is Easy</h1>
-    </div>
-  </div>
   <main :style="{
     marginTop: `${header?.clientHeight}px`
   }">
